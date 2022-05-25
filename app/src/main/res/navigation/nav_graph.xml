@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/feedContainerFragment">
+
+    <fragment
+        android:id="@+id/feedsFragment"
+        android:name="com.tapan.avomatest.ui.feeds.FeedsFragment"
+        android:label="@string/feed_fragment_label"
+        tools:layout="@layout/fragment_first" />
+    <fragment
+        android:id="@+id/bookmarksFragment"
+        android:name="com.tapan.avomatest.ui.bookmarks.BookmarksFragment"
+        android:label="@string/bookmark_fragment_label"
+        tools:layout="@layout/fragment_bookmarks">
+        <action
+            android:id="@+id/action_bookmarksFragment_to_storyDetailsFragment"
+            app:destination="@id/storyDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedListFragment"
+        android:name="com.tapan.avomatest.ui.feeds.FeedListFragment"
+        android:label="Manage feeds"
+        tools:layout="@layout/fragment_feed_list" />
+    <fragment
+        android:id="@+id/feedContainerFragment"
+        android:name="com.tapan.avomatest.ui.feeds.FeedContainerFragment"
+        android:label="fragment_feed_container"
+        tools:layout="@layout/fragment_feed_container">
+        <action
+            android:id="@+id/action_feedContainerFragment_to_storyDetailsFragment"
+            app:destination="@id/storyDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storyDetailsFragment"
+        android:name="com.tapan.avomatest.data.story.StoryDetailsFragment"
+        android:label="fragment_story_details"
+        tools:layout="@layout/fragment_story_details">
+        <argument
+            android:name="story"
+            app:argType="com.tapan.avomatest.data.model.Story"
+            app:nullable="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.tapan.avomatest.ui.SettingsFragment"
+        android:label="@string/action_settings"
+        tools:layout="@layout/fragment_settings" />
+
+
+</navigation>
